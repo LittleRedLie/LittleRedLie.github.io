@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Hexo+Github搭建免费个人博客 | LittleRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LittleRed,LittleRed's Blog">
+  
+  <meta name="description" content="前言本文使用的环境：   windows 10 node.js 10.15.3 npm 6.4.1 Git 2.21.0  hexo    一、本地环境搭建1. 安装Git  官网下载地址（下载速度极慢）:   https://git-scm.com/downloads 阿里云镜像（推荐）：    https://npm.taobao.org/mirrors/git-for-windows/">
+<meta name="keywords" content="Hexo,Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+Github搭建免费个人博客">
+<meta property="og:url" content="https://LittleRedLie.github.io/2019/03/30/Hexo-Github搭建免费个人博客/index.html">
+<meta property="og:site_name" content="LittleRed&#39;s Blog">
+<meta property="og:description" content="前言本文使用的环境：   windows 10 node.js 10.15.3 npm 6.4.1 Git 2.21.0  hexo    一、本地环境搭建1. 安装Git  官网下载地址（下载速度极慢）:   https://git-scm.com/downloads 阿里云镜像（推荐）：    https://npm.taobao.org/mirrors/git-for-windows/">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-75361cddec5e183f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-63e284cdd96793b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-0ab75f4986ba3df8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-4513a3f920cb376d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-9ab1e72eba809d2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-e77adf4339b82593.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-5f52de400ce3ee14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-631ff4ec6851dc87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-547d1ffb25797241.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-56e8883e33be585e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-3cadd8c4ba620eeb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-d25a8a5d95246364.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-d9c11e3e765d5cfc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-27f7863ab865fd71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-70d0035e5ea13124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9077923-24fd31ee36ad725b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:updated_time" content="2019-03-30T10:20:59.319Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo+Github搭建免费个人博客">
+<meta name="twitter:description" content="前言本文使用的环境：   windows 10 node.js 10.15.3 npm 6.4.1 Git 2.21.0  hexo    一、本地环境搭建1. 安装Git  官网下载地址（下载速度极慢）:   https://git-scm.com/downloads 阿里云镜像（推荐）：    https://npm.taobao.org/mirrors/git-for-windows/">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9077923-75361cddec5e183f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LittleRed&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LittleRed&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个小萌新的日常博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//littleredlie.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/LittleRedLie">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/2170265300">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Hexo-Github搭建免费个人博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Hexo+Github搭建免费个人博客
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Hexo/">Hexo</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-03-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文使用的环境：</p>
+<blockquote>
+<ul>
+<li>windows 10</li>
+<li>node.js 10.15.3</li>
+<li>npm 6.4.1</li>
+<li>Git 2.21.0 </li>
+<li>hexo </li>
+</ul>
+</blockquote>
+<h2 id="一、本地环境搭建"><a href="#一、本地环境搭建" class="headerlink" title="一、本地环境搭建"></a>一、本地环境搭建</h2><h4 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h4><blockquote>
+<ul>
+<li>官网下载地址（下载速度极慢）:   <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></li>
+<li>阿里云镜像（推荐）：    <a href="https://npm.taobao.org/mirrors/git-for-windows/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/git-for-windows/</a></li>
+</ul>
+</blockquote>
+<pre><code>下载完后，默认安装就行（一直点next）
+</code></pre><h4 id="2-安装node-js"><a href="#2-安装node-js" class="headerlink" title="2. 安装node.js"></a>2. 安装node.js</h4><blockquote>
+<ul>
+<li>官网下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a></li>
+</ul>
+</blockquote>
+<pre><code>下载完后，也是默认安装就行（一直点next）
+</code></pre><h4 id="3-检查环境"><a href="#3-检查环境" class="headerlink" title="3. 检查环境"></a>3. 检查环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;   node -v</span><br><span class="line">&gt;   npm -v</span><br><span class="line">&gt;   git --version</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/9077923-75361cddec5e183f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="成功安装"></p>
+<h4 id="4-本地生成hexo"><a href="#4-本地生成hexo" class="headerlink" title="4. 本地生成hexo"></a>4. 本地生成hexo</h4><p>在D盘创建hexo文件夹，然后鼠标点击空白处右键，选择Git Bash Here<br><img src="https://upload-images.jianshu.io/upload_images/9077923-63e284cdd96793b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt><br>在命令行依次输入：npm install -g hexo-cli<br><img src="https://upload-images.jianshu.io/upload_images/9077923-0ab75f4986ba3df8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt><br>检查hexo版本，输入：hexo -v<br><img src="https://upload-images.jianshu.io/upload_images/9077923-4513a3f920cb376d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt><br>初始化hexo，输入：hexo init<br><img src="https://upload-images.jianshu.io/upload_images/9077923-9ab1e72eba809d2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt><br>接着输入：</p>
+<blockquote>
+<p>npm install<br>  hexo g<br>  hexo s</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/9077923-e77adf4339b82593.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt><br><img src="https://upload-images.jianshu.io/upload_images/9077923-5f52de400ce3ee14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt></p>
+<p>  访问本地 http:localhost:4000<br><img src="https://upload-images.jianshu.io/upload_images/9077923-631ff4ec6851dc87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="访问成功"></p>
+<h2 id="二、搭建Github博客"><a href="#二、搭建Github博客" class="headerlink" title="二、搭建Github博客"></a>二、搭建Github博客</h2><h4 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1. 创建仓库"></a>1. 创建仓库</h4><p><img src="https://upload-images.jianshu.io/upload_images/9077923-547d1ffb25797241.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt></p>
+<h4 id="2-配置git个人信息（信息必须与github账户一致）"><a href="#2-配置git个人信息（信息必须与github账户一致）" class="headerlink" title="2. 配置git个人信息（信息必须与github账户一致）"></a>2. 配置git个人信息（信息必须与github账户一致）</h4><blockquote>
+<p>git config –global user.name “your username”<br>git config –global user.email”your email”</p>
+</blockquote>
+<h4 id="3-修改之前创建的hexo文件夹下的-config-yml文件"><a href="#3-修改之前创建的hexo文件夹下的-config-yml文件" class="headerlink" title="3. 修改之前创建的hexo文件夹下的_config.yml文件"></a>3. 修改之前创建的hexo文件夹下的_config.yml文件</h4><p><img src="https://upload-images.jianshu.io/upload_images/9077923-56e8883e33be585e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="找到Deployment模块进行修改"></p>
+<h4 id="4-配置ssh"><a href="#4-配置ssh" class="headerlink" title="4. 配置ssh"></a>4. 配置ssh</h4><p>第一次设置时本地没有密钥，打开git bash，输入：<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;123456789@qq.com&quot;(更换成自己的邮箱，然后一直回车即可)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9077923-3cadd8c4ba620eeb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="公钥存储路径"></p>
+<h4 id="5-将Github和Hexo连接"><a href="#5-将Github和Hexo连接" class="headerlink" title="5. 将Github和Hexo连接"></a>5. 将Github和Hexo连接</h4><p>用记事本将上图路径下id_rsa.pub文件内容复制下来<br><img src="https://upload-images.jianshu.io/upload_images/9077923-d25a8a5d95246364.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="点击setting"><br><img src="https://upload-images.jianshu.io/upload_images/9077923-d9c11e3e765d5cfc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="点击New SSH key"><br><img src="https://upload-images.jianshu.io/upload_images/9077923-27f7863ab865fd71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="将id_rsa.pub文件内容复制到key里，然后点击Add SSH key"></p>
+<h4 id="6-在本地hexo文件夹下打开git-bash，输入"><a href="#6-在本地hexo文件夹下打开git-bash，输入" class="headerlink" title="6. 在本地hexo文件夹下打开git bash，输入"></a>6. 在本地hexo文件夹下打开git bash，输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; ssh -T git@github.com</span><br><span class="line">&gt; npm install --save hexo-deployer-git</span><br><span class="line">&gt; hexo d -g</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/9077923-70d0035e5ea13124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt></p>
+<h4 id="7-访问自己github（https-littleredlie-github-io-）"><a href="#7-访问自己github（https-littleredlie-github-io-）" class="headerlink" title="7. 访问自己github（https://littleredlie.github.io/）"></a>7. 访问自己github（<a href="https://littleredlie.github.io/）">https://littleredlie.github.io/）</a></h4><p><img src="https://upload-images.jianshu.io/upload_images/9077923-24fd31ee36ad725b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="成功"></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年03月30日 18:20</p>
+        <p>原始链接： <a class="post-url" href="/2019/03/30/Hexo-Github搭建免费个人博客/" title="Hexo+Github搭建免费个人博客">https://LittleRedLie.github.io/2019/03/30/Hexo-Github搭建免费个人博客/</a></p>
+        <footer>
+            <a href="https://LittleRedLie.github.io">
+                <img src="/images/logo.png" alt="LittleRed">
+                LittleRed
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://LittleRedLie.github.io/2019/03/30/Hexo-Github搭建免费个人博客/&title=《Hexo+Github搭建免费个人博客》 — LittleRed's Blog&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://LittleRedLie.github.io/2019/03/30/Hexo-Github搭建免费个人博客/&title=《Hexo+Github搭建免费个人博客》 — LittleRed's Blog&source=萌新的日常博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://LittleRedLie.github.io/2019/03/30/Hexo-Github搭建免费个人博客/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo+Github搭建免费个人博客》 — LittleRed's Blog&url=https://LittleRedLie.github.io/2019/03/30/Hexo-Github搭建免费个人博客/&via=https://LittleRedLie.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://LittleRedLie.github.io/2019/03/30/Hexo-Github搭建免费个人博客/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://LittleRedLie.github.io/2019/03/30/Hexo-Github搭建免费个人博客/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Hexo/" class="color5">Hexo</a>
+      
+    <a href="/tags/Blog/" class="color5">Blog</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、本地环境搭建"><span class="post-toc-text">一、本地环境搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-安装Git"><span class="post-toc-text">1. 安装Git</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-安装node-js"><span class="post-toc-text">2. 安装node.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-检查环境"><span class="post-toc-text">3. 检查环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-本地生成hexo"><span class="post-toc-text">4. 本地生成hexo</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、搭建Github博客"><span class="post-toc-text">二、搭建Github博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-创建仓库"><span class="post-toc-text">1. 创建仓库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-配置git个人信息（信息必须与github账户一致）"><span class="post-toc-text">2. 配置git个人信息（信息必须与github账户一致）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-修改之前创建的hexo文件夹下的-config-yml文件"><span class="post-toc-text">3. 修改之前创建的hexo文件夹下的_config.yml文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-配置ssh"><span class="post-toc-text">4. 配置ssh</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-将Github和Hexo连接"><span class="post-toc-text">5. 将Github和Hexo连接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-在本地hexo文件夹下打开git-bash，输入"><span class="post-toc-text">6. 在本地hexo文件夹下打开git bash，输入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-访问自己github（https-littleredlie-github-io-）"><span class="post-toc-text">7. 访问自己github（https://littleredlie.github.io/）</span></a></li></ol></li>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/29/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Hello World</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 LittleRed<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://LittleRedLie.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Hello-World/">Hello World</a><a class="category-link" href="/categories/Hexo/">Hexo</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
