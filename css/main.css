@@ -1812,7 +1812,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #74b4ff;
+  background: #ffd0d7;
 }
 .feed-link,
 .chat {
@@ -3000,7 +3000,4 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
-}
-body {
-  background: url("https://littleredlie.github.io/images/background.png");
 }
