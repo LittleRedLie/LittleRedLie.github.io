@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo的Next主题下添加看板娘]]></title>
+    <url>%2F2019%2F04%2F01%2FHexo%E7%9A%84Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98%2F</url>
+    <content type="text"><![CDATA[感觉blog有点简洁，所以就上网找了一下Next主题下的一些装饰办法，发现了看板娘，感觉还行！ 1.下载项目我们先把项目下到主题的source目录下1git clone &quot;https://github.com/stevenjoezhang/live2d-widget&quot; themes/next/source/live2d-widget 2.修改 autoload.js 文件修改 themes/next/source/live2d-widget 下的 autoload.js文件将1const live2d_path = &quot;https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/&quot;; 改成1const live2d_path = &quot;/live2d-widget/&quot;; 3.修改 _layout.swing 文件 在 /themes/next/layout/_layout.swing 中,新增如下内容：123&lt;script src=&quot;https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css&quot;/&gt;&lt;script src=&quot;/live2d-widget/autoload.js&quot;&gt;&lt;/script&gt; 4.个性化设置想修改看板娘大小、位置、格式、文本内容等，可查看并修改 waifu-tips.js 、 waifu-tips.json 、waifu.css文件。 参考文章https://www.jianshu.com/p/89440678ee3chttps://github.com/stevenjoezhang/live2d-widget]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+        <tag>Next</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo+Github搭建免费个人博客]]></title>
     <url>%2F2019%2F03%2F30%2FHexo-Github%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[前言本文使用的环境： windows 10 node.js 10.15.3 npm 6.4.1 Git 2.21.0 hexo 一、本地环境搭建1. 安装Git 官网下载地址（下载速度极慢）: https://git-scm.com/downloads 阿里云镜像（推荐）： https://npm.taobao.org/mirrors/git-for-windows/ 下载完后，默认安装就行（一直点next） 2. 安装node.js 官网下载地址：https://nodejs.org/en/download/ 下载完后，也是默认安装就行（一直点next） 3. 检查环境123&gt; node -v&gt; npm -v&gt; git --version 4. 本地生成hexo在D盘创建hexo文件夹，然后鼠标点击空白处右键，选择Git Bash Here在命令行依次输入：npm install -g hexo-cli检查hexo版本，输入：hexo -v初始化hexo，输入：hexo init接着输入：123&gt; npm install&gt; hexo g&gt; hexo s 访问本地 http:localhost:4000 二、搭建Github博客1. 创建仓库 2. 配置git个人信息（信息必须与github账户一致）12&gt; git config --global user.name &quot;your username&quot;&gt; git config --global user.email &quot;your email&quot; 3. 修改之前创建的hexo文件夹下的_config.yml文件 4. 配置ssh第一次设置时本地没有密钥，打开git bash，输入： 1ssh-keygen -t rsa -C &quot;123456789@qq.com&quot;(更换成自己的邮箱，然后一直回车即可) 5. 将Github和Hexo连接用记事本将上图路径下id_rsa.pub文件内容复制下来 6. 在本地hexo文件夹下打开git bash，输入123&gt; ssh -T git@github.com&gt; npm install --save hexo-deployer-git&gt; hexo d -g 7. 访问自己github（https://littleredlie.github.io/）]]></content>
