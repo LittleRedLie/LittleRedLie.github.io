@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[快速排序]]></title>
+    <url>%2F2019%2F07%2F02%2F%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[原理参考链接：http://wiki.jikexueyuan.com/project/easy-learn-algorithm/fast-sort.html 源码（c++）12345678910111213141516171819202122232425262728293031323334353637383940414243#include&lt;iostream&gt;using namespace std;template&lt;class T&gt;void QuickSort(T *a, const int left, const int right)&#123; if(left&lt;right)&#123; //选枢轴划分 int i = left; int j = right; int pivot = a[left]; while(i&lt;j)&#123; //顺序很重要，要先从右边开始找(因为左边是枢纽) 后面有解释 while(i&lt;j &amp;&amp; a[j]&gt;=pivot)&#123; j--; &#125; while(i&lt;j &amp;&amp; a[i]&lt;=pivot)&#123; i++; &#125; if(i&lt;j)&#123; swap(a[i],a[j]); &#125; &#125; swap(a[left],a[j]); QuickSort(a,left,j-1); QuickSort(a,j+1,right); &#125; &#125;int main()&#123; int a[]=&#123;4,5,1,9,7,6,2,3,8,0&#125;; //int a[]=&#123;1,3,5,0,9,4,2,8,7,6&#125;; QuickSort(a,0,9); for(int i=0; i&lt;10; i++)&#123; cout&lt;&lt;a[i]&lt;&lt;endl; &#125; return 0;&#125; 注意点为什么一定要从基数（枢纽）对面先开始？ 假设对如下进行排序： 如上图，6在左，9在右 假设：我们将6作为基数 从左边开始（与正确程序执行顺序正好相反） 123456while(i&lt;j &amp;&amp; a[i]&lt;=pivot)&#123; i++;&#125;while(i&lt;j &amp;&amp; a[j]&gt;=pivot)&#123; j--;&#125; //错误顺序 按照这个代码逻辑，走一遍，i会移动到 数字7 停下来 (此时因为 a[i]&gt;pivot，循环退出)，而接着 j 会也会移动到 数字7 停下来 （此时因为 i==j ，循环退出），然后执行 基数6 与 a[j] 的交换 交换后数组：｛7，1，2，6，9｝ 此时明显与快速排序算法的核心思想不一致 问题在于当我们先从在边开始时，那么 i 所停留的那个位置肯定是大于基数6的 而在上述例子中，为了满足 i&lt;j 于是 j也停留在7的位置，但最后交换回去的时候，7就到了左边 所以，我们必须从基准数的对面开始]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python2与python3的一些区别]]></title>
     <url>%2F2019%2F04%2F02%2Fpython2%E4%B8%8Epython3%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[数据类型之间的区别整数在Python 2.x版本中整数分为一般整数和长整数。 12345678&gt;&gt;&gt; 2**312147483648L&gt;&gt;&gt; 2**301073741824&gt;&gt;&gt; 2**30-1+2**302147483647&gt;&gt;&gt; 2**31-12147483647L 这个是在Python 2.7.13版本的结果。每个版本会有一些不同。在这个版本中一般整数是32bit的（符号位占1bit）。当超过32bit，会在后面加L。一些版本有可能是64bit，这个看具体的版本。 但是在Python 3.x就没有这种区分，整数只有一个类型。 1234&gt;&gt;&gt; 2**312147483648&gt;&gt;&gt; 2**639223372036854775808 这个是在Python 3.6.2版本的结果，可以证实Python 3.x的整数跟Python 2.x是有区别的 函数之间的区别round()round()之四舍五入 Python2.x 1234&gt;&gt;&gt; round(2.5)3.0&gt;&gt;&gt; round(3.5)4.0 可以看出python2.x版本的结果跟我们的预想的一样，函数的返回结果还是浮点数 Python3.x 1234&gt;&gt;&gt; round(2.5)2&gt;&gt;&gt; round(3.5)4 从结果上看，在python3.x中，这个函数是有变化的，函数的返回结果变成是整数，而且当要舍弃的数值正好为5（中间）时，会取接近的偶数值。例如： 1234&gt;&gt;&gt; round(2.5)2&gt;&gt;&gt; round(4.5)4 len() Python2.x 1234567&gt;&gt;&gt; len('中文')4&gt;&gt;&gt; len(u'中文')2&gt;&gt;&gt; a='中文'&gt;&gt;&gt; a'\xd6\xd0\xce\xc4' Python3.x 12345&gt;&gt;&gt; len('中文')2&gt;&gt;&gt; a='中文'&gt;&gt;&gt; a'中文' 从结果可以看出，len()的结果跟字符串默认编码有关。 在Python 3.x里默认是使用Unicode方式存储字符串。在Python 2.x里默认是使用Latin-1方式存储字符串，因此不能直接识别中文。]]></content>
